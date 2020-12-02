@@ -60,6 +60,7 @@ pipeline {
       }
     }
     stage('component test') {
+      when {branch 'master'}
       options {
         skipDefaultCheckout(true)
       }
@@ -68,7 +69,6 @@ pipeline {
         sh 'ci/component-test.sh'
       }
     }
-
   } 
 }
 void pushIfMaster() {
